@@ -42,8 +42,8 @@ Ticket 생성시 자동으로 현재 시간 찍혀야 함
 
 티켓을 생성 시 같은 프로젝트에 참여하고 있는 Member 중에 UserType이 Developer인 사람에게 티켓을 자동 할당해야함 
 이때 현재 발행 한 티켓의 Component 가 같은 티켓 중에  (UserType이 Developer인 사람에게) 티켓의 DeveloperID에 가장 많이 들어있는 사람(DeveloperID가 많다는 것은 같은 컴포넌트 티켓을 처리해본 경험이 많다고 가정) 을 자동으로 할당하고, 
-만약 그 수가 2명 이상이면, 현재 Developer에게 할당된 티켓 중 Status 가 assigned가 가장 적은 사람에게(가장 덜 바쁠 것이라는 가정) 할당
-만약 그 수가 2명 이상이면 id가 작은대로 할당해
+만약 그 수가 2명 이상이면, 현재 Developer에게 할당된 티켓 중 Status 가 assigned가 가장 적은 사람에게(가장 덜 바쁠 것이라는 가정) 할당. 
+만약 그 수가 2명 이상이면 id가 작은대로 할당해야 함.
 
 * ### 티켓 (이슈) 검색 기능
 * readAssignedTicketList

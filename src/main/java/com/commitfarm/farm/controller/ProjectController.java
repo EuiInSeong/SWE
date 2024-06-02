@@ -41,19 +41,19 @@ public class ProjectController {
 
 
 
-    @GetMapping("/read/project-list/{userId}")
-    @Operation(summary =  "프로젝트 단일 조회 필요 없음, 리스트 별로 이름,Due Date만 반환 ", description = "프로젝트 세부 정보 정보 반환",
-            responses = {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "200으로 ok"
-                    )
-            }
-    )
-    public Result<?> readProjectList(){
-        return new Result<>("readProject");
-    }
-
+//    @GetMapping("/read/project-list/{userId}")
+//    @Operation(summary =  "프로젝트 단일 조회 필요 없음, 리스트 별로 이름,Due Date만 반환 ", description = "프로젝트 세부 정보 정보 반환",
+//            responses = {
+//                    @ApiResponse(
+//                            responseCode = "200",
+//                            description = "200으로 ok"
+//                    )
+//            }
+//    )
+//    public Result<?> readProjectList(){
+//        return new Result<>("readProject");
+//    }
+//
 
   // don't make project Delete APi -> not Used, Need
 

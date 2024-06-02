@@ -17,16 +17,17 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/v3/api-docs/**",  // springdoc-openapi 2.x 사용 시 변경된 경로
                                 "/swagger-ui.html",
-                                "/swagger-ui/**").permitAll()  // Swagger 관련 URL을 인증 없이 접근 허용
+                                "/swagger-ui/**", "*").permitAll()  // Swagger 관련 URL을 인증 없이 접근 허용
+
                         .anyRequest().authenticated()
-                )
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .permitAll()
-                )
-                .logout((logout) -> logout
-                        .permitAll()
                 );
+//                .formLogin((form) -> form
+//                        .loginPage("/login")
+////                        .permitAll()
+////                )
+////                .logout((logout) -> logout
+////                        .permitAll()
+////                );
 
         return http.build();
     }
