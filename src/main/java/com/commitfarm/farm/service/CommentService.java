@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Service
 @RequiredArgsConstructor
 public class CommentService {
@@ -25,13 +28,16 @@ public class CommentService {
     @Transactional
     public void createComment(Long usersId, Long ticketId, CreateCommentDTO dto) {
         // leave comment -> only ticket not pro, milestone
-        Users users = usersRepository.findById(usersId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + usersId));
+        Users reporter = usersRepository.findById(usersId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + usersId));
         Ticket ticket = ticketRepository.findById(ticketId).orElseThrow(() -> new IllegalArgumentException("해당 티켓이 없습니다. id=" + ticketId));
 
+        LocalDateTime createdAt = LocalDateTime.now();
+
         Comment comment = new Comment();
-        comment.setUser(users);
+        comment.setUser(reporter);
         comment.setTicket(ticket);
         comment.setContent(dto.getContent());
+        comment.setTimeStamp(createdAt);
         commentRepository.save(comment);
 
     }
@@ -42,7 +48,7 @@ public class CommentService {
         Users reporter = usersRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id=" + userId));
         if(comment.getUser() != reporter){
             throw new IllegalArgumentException("해당 유저는 댓글을 삭제할 권한이 없습니다.");
-        }
+    }
         commentRepository.deleteById(commentId);
     }
 

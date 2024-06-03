@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LoginReq {
     @Schema(description = "로그인 아이디(이메일)")
-    private String id;
+    private String email;
     @Schema(description = "로그인 비밀번호")
     private String password;
 }

@@ -13,9 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReopenedTicketListRes {
+    @Schema(description = "티켓 ID")
+    private Long ticketId;
     @Schema(description = "티켓 이름")
     private String title;
-
 
     @Schema(description = "티켓 우선 순위 " )
     private Priority priority;

@@ -20,13 +20,6 @@ public class CreateProjectReq {
     @NotBlank(message = "Project name is required")
     private String name;
 
-    @Schema(description = "프로젝트 시작일")
-    @NotNull(message = "Start date is required")
-    private Date startDate;
-
-    @Schema(description = "프로젝트 마감일")
-    @NotNull(message = "End date is required")
-    private Date endDate;
 
     @Schema(description = "프로젝트 설명")
     @NotBlank(message = "Description is required")

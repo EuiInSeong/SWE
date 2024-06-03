@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
+    List<Member> findAllByProject(Project project);
     List<Member> findAllByProjectAndUserType(Project project, UserType userType);
     Optional<Member> findByProject_ProjectIdAndUser_UserId(Long projectId, Long userId);
     //used to get ticket list api, update status api

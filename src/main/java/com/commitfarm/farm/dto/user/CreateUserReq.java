@@ -17,6 +17,6 @@ public class CreateUserReq {
     private String password;
     @Schema(description = "사용자 이메일")
     private String email;
-    @Schema(description = "사용자 역할(pl,dev,tester)")
-    private UserType userType;
+    @Schema(description = "사용자가 admin인지 아닌지")
+    private boolean admin;
 }

@@ -14,6 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 public class ClosedTicketListRes {
 
+    @Schema(description = "티켓 ID")
+    private Long ticketId;
     @Schema(description = "티켓 이름")
     private String title;
 

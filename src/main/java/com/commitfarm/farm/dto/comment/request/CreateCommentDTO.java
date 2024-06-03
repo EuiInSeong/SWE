@@ -16,17 +16,7 @@ import java.time.LocalDateTime;
 public class CreateCommentDTO {
 
 
-
-    @Schema(description = "댓글 쓴 사람")
-    private Users reporter;
-
     @Schema(description = "댓글 내용")
     private String content;
-
-    @Schema(description = "댓글 생성 시간")
-    LocalDateTime timeStamp;
-
-
-
 
 }

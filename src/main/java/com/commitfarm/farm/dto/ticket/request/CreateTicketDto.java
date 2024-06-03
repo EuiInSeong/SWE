@@ -19,33 +19,25 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CreateTicketDto {
 
-    @Schema(description = "마일스톤 ")
-    private Milestone milestone;
+    @Schema(description = "마일스톤 이름 ")
+    private String milestoneName;
+//    @Schema(description = "마일스톤 설명 ")
+//    private String milestoneDes;
 
-    @Schema(description = "할당한 사람")
-    private Users reporter;
 
-    @Schema(description = "할당된 사람")
-    private Users developer;
-
-    @Schema(description = "Status")
-    private Status status;
+//    @Schema(description = "할당한 사람(Tester email)")
+//    private String testerEmail;
 
     @Schema(description = "우선 순위")
     private Priority priority;
 
-    @Schema(description = "티켓 생성 시간")
-    private LocalDateTime createdTime;
 
-    @Schema(description = "수정 시간")
-    private LocalDateTime modifiedTime;
-
-    @Schema(description = "컴포넌트 타입")
+    @Schema(description = "컴넌트 타입")
     private Component component;
 
     @Schema(description = "티켓 설명")
-    private String description;
+    private String ticketDescription;
 
     @Schema(description = "티켓 제목")
-    private String title;
+    private String ticketTitle;
 }

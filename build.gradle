@@ -40,6 +40,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mockito:mockito-core'
 	testImplementation 'org.mockito:mockito-junit-jupiter'
+	implementation 'org.jetbrains:annotations:24.0.1' //
+	//
+//	providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+	implementation 'javax.servlet:javax.servlet-api:4.0.1'
 }
 
 tasks.named('test') {

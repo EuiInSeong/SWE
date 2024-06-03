@@ -14,6 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AssignedTicketListRes {
+    @Schema(description = "티켓 ID")
+    private Long ticketId;
 
     @Schema(description = "티켓 이름")
     private String title;

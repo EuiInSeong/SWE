@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.commitfarm.farm.repository.ProjectRepository</OriginalElement>
+  <nodes>
+    <node x="538.7849010510326" y="820.0336640460898">com.commitfarm.farm.controller.CommentController</node>
+    <node x="2191.52848416139" y="915.0986807618292">com.commitfarm.farm.controller.ProjectController</node>
+    <node x="683.6245951153377" y="474.87165908512304">com.commitfarm.farm.repository.TicketRepository</node>
+    <node x="1573.1735275711192" y="484.6866237286126">com.commitfarm.farm.domain.Ticket</node>
+    <node x="1895.4655977431864" y="950.1409259415211">com.commitfarm.farm.repository.ProjectRepository</node>
+    <node x="-209.3365178366687" y="893.6823314692801">com.commitfarm.farm.service.UsersService</node>
+    <node x="-213.44324517466885" y="444.4218031818907">com.commitfarm.farm.domain.Users</node>
+    <node x="106.95893336262202" y="838.3764071067768">com.commitfarm.farm.repository.CommentRepository</node>
+    <node x="2163.929887635329" y="766.7393941886116">com.commitfarm.farm.service.ProjectService</node>
+    <node x="227.95573216054743" y="664.943064478378">com.commitfarm.farm.service.CommentService</node>
+    <node x="1889.1499963788533" y="413.3359791028586">com.commitfarm.farm.domain.Project</node>
+    <node x="1282.9512239556136" y="727.5306999538748">com.commitfarm.farm.domain.Member</node>
+    <node x="1363.4790677172427" y="1173.6263045134915">com.commitfarm.farm.controller.TicketController</node>
+    <node x="1652.929919833282" y="-13.403751981559253">com.commitfarm.farm.domain.Milestone</node>
+    <node x="1278.8923980557388" y="1026.3711696248047">com.commitfarm.farm.repository.MemberRepository</node>
+    <node x="212.99674146194923" y="374.91515016736537">com.commitfarm.farm.domain.Comment</node>
+    <node x="120.79635802881376" y="1072.803944679261">com.commitfarm.farm.controller.UserController</node>
+    <node x="1895.3323571816545" y="1102.540315207817">com.commitfarm.farm.service.TicketService</node>
+    <node x="992.9563337895129" y="971.4082358736855">com.commitfarm.farm.repository.UsersRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.commitfarm.farm.domain.Comment" target="com.commitfarm.farm.domain.Ticket" relationship="TO_ONE">
+      <point x="2.58538050786683E-4" y="-79.50015016736535" />
+      <point x="317.497" y="273.0" />
+      <point x="1686.674" y="273.0" />
+      <point x="4.724288808120036E-4" y="-175.49964805777176" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.CommentService" target="com.commitfarm.farm.repository.TicketRepository" relationship="TO_ONE">
+      <point x="197.5002678394526" y="-34.07106447837805" />
+      <point x="666.125" y="674.372" />
+      <point x="666.125" y="705.0" />
+      <point x="938.625" y="705.0" />
+      <point x="4.0488466231636266E-4" y="103.50034091487692" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.ProjectService" target="com.commitfarm.farm.repository.UsersRepository" relationship="TO_ONE">
+      <point x="-136.42988763532912" y="43.49960581138839" />
+      <point x="2168.5" y="929.0" />
+      <point x="1096.456" y="929.0" />
+      <point x="-3.3378951297891035E-4" y="-31.500235873685597" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Ticket" target="com.commitfarm.farm.domain.Milestone" relationship="TO_ONE">
+      <point x="67.2564724288809" y="-175.5" />
+      <point x="15.000080166718135" y="91.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Ticket" target="com.commitfarm.farm.domain.Comment" relationship="TO_MANY">
+      <point x="-14.999527571119188" y="-175.49964805777176" />
+      <point x="1671.674" y="400.0" />
+      <point x="514.497" y="400.0" />
+      <point x="514.497" y="439.415" />
+      <point x="104.50025853805079" y="-15.000150167365348" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Milestone" target="com.commitfarm.farm.domain.Ticket" relationship="TO_MANY">
+      <point x="8.016671813493303E-5" y="91.49975198155926" />
+      <point x="1738.93" y="273.0" />
+      <point x="1686.674" y="273.0" />
+      <point x="4.724288808120036E-4" y="-175.49964805777176" />
+    </edge>
+    <edge source="com.commitfarm.farm.controller.ProjectController" target="com.commitfarm.farm.service.ProjectService" relationship="TO_ONE">
+      <point x="-91.0985965260611" y="-31.5" />
+      <point x="0.0" y="43.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.TicketService" target="com.commitfarm.farm.repository.UsersRepository" relationship="TO_ONE">
+      <point x="13.133642818345379" y="-151.50031520781704" />
+      <point x="2143.966" y="929.0" />
+      <point x="1096.456" y="929.0" />
+      <point x="-3.3378951297891035E-4" y="-31.500235873685597" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Member" target="com.commitfarm.farm.domain.Project" relationship="TO_ONE">
+      <point x="85.99977604438641" y="31.584300046125236" />
+      <point x="1845.0" y="826.615" />
+      <point x="1845.0" y="517.836" />
+      <point x="-167.4999963788532" y="2.089714143949095E-5" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.TicketService" target="com.commitfarm.farm.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-235.5003571816544" y="-3.15207817038754E-4" />
+      <point x="1871.0" y="1254.04" />
+      <point x="1871.0" y="1069.871" />
+      <point x="249.99960194426126" y="-1.696248045846005E-4" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.CommentService" target="com.commitfarm.farm.repository.CommentRepository" relationship="TO_ONE">
+      <point x="-190.0" y="43.5" />
+      <point x="24.496798797925408" y="-14.0" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.TicketService" target="com.commitfarm.farm.domain.Ticket" relationship="CREATE">
+      <point x="235.5" y="0.0" />
+      <point x="2633.028" y="1254.040315207817" />
+      <point x="2633.028" y="357.41515016736537" />
+      <point x="1768.93" y="357.41515016736537" />
+      <point x="82.2564724288809" y="-175.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Project" target="com.commitfarm.farm.domain.Member" relationship="TO_MANY">
+      <point x="3.6211467886460014E-6" y="104.50002089714144" />
+      <point x="2056.65" y="880.031" />
+      <point x="1096.456" y="880.031" />
+      <point x="1096.456" y="786.0" />
+      <point x="1111.456" y="786.0" />
+      <point x="1111.456" y="827.534" />
+      <point x="-86.00022395561359" y="32.50330004612522" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Users" target="com.commitfarm.farm.domain.Member" relationship="TO_MANY">
+      <point x="2.4517466884788064E-4" y="127.50019681810932" />
+      <point x="-97.943" y="786.0" />
+      <point x="1111.456" y="786.0" />
+      <point x="1111.456" y="827.534" />
+      <point x="-86.00022395561359" y="32.50330004612522" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.ProjectService" target="com.commitfarm.farm.repository.MemberRepository" relationship="TO_ONE">
+      <point x="-140.9998876353293" y="-3.94188611608115E-4" />
+      <point x="1871.0" y="810.239" />
+      <point x="1871.0" y="1069.871" />
+      <point x="249.99960194426126" y="-1.696248045846005E-4" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.TicketService" target="com.commitfarm.farm.repository.ProjectRepository" relationship="TO_ONE">
+      <point x="-1.866357181654621" y="-151.50031520781704" />
+      <point x="2128.966" y="1042.0" />
+      <point x="2010.966" y="1042.0" />
+      <point x="4.0225681345873454E-4" y="31.50007405847896" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Member" target="com.commitfarm.farm.domain.Users" relationship="TO_ONE">
+      <point x="85.99977604438641" y="3.0004612517586793E-4" />
+      <point x="1515.0" y="795.031" />
+      <point x="1515.0" y="457.37199999999996" />
+      <point x="529.497" y="457.37199999999996" />
+      <point x="529.497" y="571.922" />
+      <point x="115.50024517466885" y="1.9681810931615473E-4" />
+    </edge>
+    <edge source="com.commitfarm.farm.controller.UserController" target="com.commitfarm.farm.service.UsersService" relationship="TO_ONE">
+      <point x="-176.5" y="0.0" />
+      <point x="-82.33651783666869" y="1116.303944679261" />
+      <point x="0.0" y="55.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.controller.TicketController" target="com.commitfarm.farm.service.TicketService" relationship="TO_ONE">
+      <point x="235.5" y="0.0" />
+      <point x="-235.5" y="71.0859893056745" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.ProjectService" target="com.commitfarm.farm.domain.Project" relationship="CREATE">
+      <point x="-88.27989125647582" y="-43.5" />
+      <point x="160.0" y="104.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.CommentService" target="com.commitfarm.farm.repository.UsersRepository" relationship="TO_ONE">
+      <point x="2.67839452590124E-4" y="43.49993552162198" />
+      <point x="425.456" y="929.0" />
+      <point x="1096.456" y="929.0" />
+      <point x="-3.3378951297891035E-4" y="-31.500235873685597" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.TicketService" target="com.commitfarm.farm.repository.TicketRepository" relationship="TO_ONE">
+      <point x="-235.5003571816544" y="-101.73631520781692" />
+      <point x="975.456" y="1152.304" />
+      <point x="975.456" y="705.0" />
+      <point x="938.625" y="705.0" />
+      <point x="4.0488466231636266E-4" y="103.50034091487692" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Ticket" target="com.commitfarm.farm.domain.Project" relationship="TO_ONE">
+      <point x="113.50047242888081" y="3.519422282352025E-4" />
+      <point x="1845.0" y="660.1869756708409" />
+      <point x="1845.0" y="517.836" />
+      <point x="-167.4999963788532" y="2.089714143949095E-5" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Comment" target="com.commitfarm.farm.domain.Users" relationship="TO_ONE">
+      <point x="104.50025853805079" y="-1.5016736540474085E-4" />
+      <point x="1515.0" y="454.41499999999996" />
+      <point x="1515.0" y="457.37199999999996" />
+      <point x="529.497" y="457.37199999999996" />
+      <point x="529.497" y="571.922" />
+      <point x="115.50024517466885" y="1.9681810931615473E-4" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.CommentService" target="com.commitfarm.farm.domain.Comment" relationship="CREATE">
+      <point x="-107.9589906985982" y="-43.5" />
+      <point x="0.0" y="79.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.controller.CommentController" target="com.commitfarm.farm.service.CommentService" relationship="TO_ONE">
+      <point x="-190.0" y="-43.5" />
+      <point x="120.82916889048522" y="43.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.ProjectService" target="com.commitfarm.farm.repository.ProjectRepository" relationship="TO_ONE">
+      <point x="141.0001123646707" y="-3.94188611608115E-4" />
+      <point x="2618.028" y="810.239" />
+      <point x="2618.028" y="995.5989999999999" />
+      <point x="2168.5" y="995.5989999999999" />
+      <point x="2168.5" y="1042.0" />
+      <point x="2010.966" y="1042.0" />
+      <point x="4.0225681345873454E-4" y="31.50007405847896" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Users" target="com.commitfarm.farm.domain.Comment" relationship="TO_MANY">
+      <point x="115.50024517466885" y="-14.999803181890684" />
+      <point x="514.497" y="556.922" />
+      <point x="514.497" y="439.415" />
+      <point x="104.50025853805079" y="-15.000150167365348" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Ticket" target="com.commitfarm.farm.domain.Users" relationship="TO_ONE">
+      <point x="-113.49952757111919" y="3.519422282352025E-4" />
+      <point x="1515.0" y="660.1869756708409" />
+      <point x="1515.0" y="457.37199999999996" />
+      <point x="529.497" y="457.37199999999996" />
+      <point x="529.497" y="571.922" />
+      <point x="115.50024517466885" y="1.9681810931615473E-4" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.ProjectService" target="com.commitfarm.farm.domain.Member" relationship="CREATE">
+      <point x="-141.0" y="31.37560581138837" />
+      <point x="86.0" y="46.584300046125236" />
+    </edge>
+    <edge source="com.commitfarm.farm.domain.Users" target="com.commitfarm.farm.domain.Ticket" relationship="TO_MANY">
+      <point x="2.4517466884788064E-4" y="-127.49980318189068" />
+      <point x="-97.943" y="273.0" />
+      <point x="1686.674" y="273.0" />
+      <point x="4.724288808120036E-4" y="-175.49964805777176" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.UsersService" target="com.commitfarm.farm.domain.Users" relationship="CREATE">
+      <point x="-30.606482163331307" y="-55.5" />
+      <point x="-14.999754825331152" y="127.5" />
+    </edge>
+    <edge source="com.commitfarm.farm.service.UsersService" target="com.commitfarm.farm.repository.UsersRepository" relationship="TO_ONE">
+      <point x="126.99951783666869" y="-49.64833146928015" />
+      <point x="307.459" y="899.534" />
+      <point x="307.459" y="929.0" />
+      <point x="1096.456" y="929.0" />
+      <point x="-3.3378951297891035E-4" y="-31.500235873685597" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.46244209133024494" showDependencies="true" x="907.2973166368513" y="609.3999999999999" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

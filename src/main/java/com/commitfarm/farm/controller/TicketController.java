@@ -1,6 +1,7 @@
 package com.commitfarm.farm.controller;
 
 import com.commitfarm.farm.dto.ticket.request.CreateTicketDto;
+import com.commitfarm.farm.dto.ticket.request.UpdateAssignReq;
 import com.commitfarm.farm.dto.ticket.request.UpdateStatusReq;
 import com.commitfarm.farm.dto.ticket.response.*;
 import com.commitfarm.farm.service.TicketService;
@@ -10,6 +11,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,8 +26,17 @@ public class TicketController {
     private TicketService ticketService;
 // ticket crud
 
-    @PostMapping("/create/ticket/{projectId}")
-    @Operation(summary =  "티켓 생성 ", description = "projectId로 프로젝트 내 티켓 정보 반환",
+    @PostMapping("/create/ticket/{projectId}/{userId}")
+    @Operation(summary =  "티켓 생성 ", description = "1. projectId로 프로젝트 확인, 프로젝트 내 member list 가져오기, "
+            +"2. 멤버인 애들중에 Develoer인 애들을 가져옴 : deveolpers"
+            +"3. Develoer인 Member 티켓 리스트를 DevTicketList 라하자"
+            +"DevTicketList 중에 dto의 Component 와 일치하는 티켓 리스트(티켓 수)를 HitCount"
+            +"DevTicketList 중 assigned인 티켓 수를 Busycount"
+            +"4. HitCount 가 제일 Dev가 한 명이면 그 Dev에게 assigned, "
+            +"5. HitCount 가 여러 명이면  Busycount 가 제일 작은 Dev에게 assigned"
+            +"6. 4,5 의 단계로도 구분 할 수 없다면 MemberId가 작은 Dev에게 assigned"
+            ,
+
             responses = {
                     @ApiResponse(
                             responseCode = "200",
@@ -32,30 +44,32 @@ public class TicketController {
                     )
             }
     )
-    public void createTicket(@PathVariable Long projectId, @RequestBody CreateTicketDto ticketDTO) {
-         ticketService.createTicket(projectId, ticketDTO);
+    public void createTicket(@PathVariable Long projectId,@PathVariable Long userId , @RequestBody CreateTicketDto ticketDTO) {
+         ticketService.createTicket(projectId,userId, ticketDTO);
     }
 
-    @GetMapping("/read/ticket-list/{projectId}/{userId}")
-    @Operation(summary = "프로젝트 내, 내 티켓 리스트", description = "projectId로 프로젝트 내 티켓 정보 반환",
-            responses = {
-                    @ApiResponse(
-                            responseCode = "200",
-                            description = "프로젝트 내 티켓 리스트를 반환함."
-                    )
-            }
-    )
-    public TicketListRes readTicketList(@PathVariable Long projectId, @PathVariable Long userId) {
-        return ticketService.readTicketList(projectId, userId);
-    }
+
+
+//    @GetMapping("/vo/read/ticket-list/{projectId}/{userId}")
+//    @Operation(summary = "!!! 안씀 !!!프로젝트 내, 내 티켓 리스트", description = "projectId로 프로젝트 내 티켓 정보 반환",
+//            responses = {
+//                    @ApiResponse(
+//                            responseCode = "200",
+//                            description = "No Use"
+//                    )
+//            }
+//    )
+//    public TicketListRes readTicketList(@PathVariable Long projectId, @PathVariable Long userId) {
+//        return ticketService.readTicketList(projectId, userId);
+//    }
 
 
     @GetMapping("/read/assigned/ticket-list/{projectId}/{userId}")
-    @Operation(summary = "프로젝트 내, 내 Assigned티켓 리스트1", description = "projectId로 프로젝트 내 티켓 정보 반환",
+    @Operation(summary = "프로젝트 내, 내 Assigned 티켓 리스트1 : Assigned 티켓 리스트 클릭 시 티켓들 떠야함", description = "projectId로 프로젝트 내 티켓 정보 반환",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "프로젝트 내 티켓 리스트를 반환함."
+                            description = "프로젝트 내 Assigned 티켓 리스트를 반환함."
                     )
             }
     )
@@ -64,7 +78,7 @@ public class TicketController {
     }
 
     @GetMapping("/read/new/ticket-list/{projectId}/{userId}")
-    @Operation(summary = "프로젝트 내, 내 new 티켓 리스트2", description = "projectId로 프로젝트 내 티켓 정보 반환",
+    @Operation(summary = "프로젝트 내, 내 new 티켓 리스트2 : NEW 티켓 리스트 클릭 시 티켓들 떠야함", description = "projectId로 프로젝트 내 티켓 정보 반환",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
@@ -160,6 +174,26 @@ public class TicketController {
         return ticketService.updateTicketStatus(projectId, ticketId, userId, dto);
     }
 
+    @PutMapping("/update/ticket/assigned/{projectId}/{ticketId}/{userId}")
+    @Operation(summary = "담당 개발자를 바꾸자", description = "만약 userId 가 PL 이면 assigned 된 Dev 가능: 지금 로그인된사람이 PL 이어야함",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "담당 개발자 변경 성공"
+                    )
+            }
+    )
+    public ResponseEntity<String> updateAssignedDeveloper(@PathVariable Long projectId, @PathVariable Long ticketId, @PathVariable Long userId, @RequestBody UpdateAssignReq dto) {
+        try {
+            String result = ticketService.updateAssignedDeveloper(projectId, ticketId, userId, dto);
+            return ResponseEntity.ok(result);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("서버 에러 발생");
+        }
+    }
+
 
 
 
@@ -168,9 +202,6 @@ public class TicketController {
         ticketService.deleteTicket( ticketId);
 
     }
-
-
-
 
 
 
